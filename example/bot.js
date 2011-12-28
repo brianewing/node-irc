@@ -49,3 +49,8 @@ bot.addListener('part', function(channel, who, reason) {
 bot.addListener('kick', function(channel, who, by, reason) {
     console.log('%s was kicked from %s by %s: %s', who, channel, by, reason);
 });
+
+bot.addListener('ctcp.version', function(from, to) {
+    console.log('got ctcp version from %s to %s', from, to);
+    bot.ctcpReply(from, 'version', 'nodebot 0.1');
+});
